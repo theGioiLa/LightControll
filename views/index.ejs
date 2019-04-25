@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Control LED </title>
+	<meta charser="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<button type="submit" id="btnOn">On</button>
+
+	<hr>
+
+	<button type="submit" id="btnOff">Off</button>
+
+	<script>
+		$("#btnOn").on('click', function() {
+			let data = 1;
+			$.post('/On', data, function(data, status, xhr) {
+				console.log(data, status);
+			});
+		});
+
+		$("#btnOff").on('click', function() {
+			let data = 0;
+			$.post('/Off', data, function(data, status, xhr) {
+				console.log(data, status);
+			});
+		});
+	</script>
+</body>
+</html>
